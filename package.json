@@ -1,0 +1,25 @@
+{
+  "name": "@palmabit/react-cookie-law-static-loader",
+  "version": "0.2.1",
+  "description": "Static loader for react cookie banner GDPR compliance",
+  "author": "Alessandro Sarzina <a.sarzina@palmabit.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Palmabit-IT/react-cookie-law-static-loader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Palmabit-IT/react-cookie-law-static-loader/issues"
+  },
+  "homepage": "https://github.com/Palmabit-IT/react-cookie-law-static-loader#readme",
+  "keywords": [
+    "gdpr",
+    "cookie",
+    "cookie law",
+    "banner",
+    "cookie banner",
+    "react cookie banner",
+    "react"
+  ],
+  "main": "index.js"
+}
