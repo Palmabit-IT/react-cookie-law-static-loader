@@ -7,7 +7,7 @@
 <body>
   <div id="_rcl-banner"></div>
 
-  <script crossorigin src="https://unpkg.com/@palmabit/react-cookie-law-static-loader@0.2.2/index.js"></script>
+  <script crossorigin src="https://unpkg.com/@palmabit/react-cookie-law-static-loader@0.2.3/index.js"></script>
 
   <script>
     renderCookieBanner({
