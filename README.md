@@ -3,11 +3,16 @@
 ## Example
 
 ```html
-<script crossorigin src="https://unpkg.com/@palmabit/react-cookie-law-static-loader@0.2.1/index.js"></script>
 
-<script type="text/plain" class="_rcl">
-    console.log('Custom script...');
-</script>
+<body>
+  <div id="cookie-banner"></div>
+
+  <script crossorigin src="https://unpkg.com/@palmabit/react-cookie-law-static-loader@0.2.1/index.js"></script>
+
+  <script type="text/plain" class="_rcl">
+      console.log('Custom script...');
+  </script>
+</body>
 ```
 
 # Author
