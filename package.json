@@ -1,6 +1,6 @@
 {
   "name": "@palmabit/react-cookie-law-static-loader",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Static loader for react cookie banner GDPR compliance",
   "author": "Alessandro Sarzina <a.sarzina@palmabit.com>",
   "license": "MIT",

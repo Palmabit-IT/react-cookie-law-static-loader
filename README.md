@@ -5,12 +5,34 @@
 ```html
 
 <body>
-  <div id="cookie-banner"></div>
+  <div id="_rcl-banner"></div>
 
-  <script crossorigin src="https://unpkg.com/@palmabit/react-cookie-law-static-loader@0.2.1/index.js"></script>
+  <script crossorigin src="https://unpkg.com/@palmabit/react-cookie-law-static-loader@0.2.2/index.js"></script>
+
+  <script>
+    renderCookieBanner({
+      elementId: '_rcl-banner', // default "_rcl-banner"
+      props: {
+        message: 'Lorem ipsum',
+        // other @palmabit/react-cookie-law params
+      }
+    })
+  </script>
 
   <script type="text/plain" class="_rcl">
       console.log('Custom script...');
+  </script>
+
+  <script type="text/plain" class="_rcl_preferences">
+      console.log('Custom preferences script');
+  </script>
+
+  <script type="text/plain" class="_rcl_statistics">
+      console.log('Custom statistics script');
+  </script>
+
+  <script type="text/plain" class="_rcl_marketing">
+      console.log('Custom marketing script');
   </script>
 </body>
 ```

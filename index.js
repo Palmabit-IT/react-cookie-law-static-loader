@@ -25,32 +25,53 @@ function loadScript(url, callback) {
   document.getElementsByTagName("head")[0].appendChild(script);
 }
 
-function render(props) {
+function render(props, elementId) {
   ReactDOM.render(
     React.createElement(global.ReactCookieLaw.CookieBanner, props, null),
-    document.getElementById('cookie-banner')
+    document.getElementById(elementId || '_rcl-banner')
   );
 }
 
-function renderBanner() {
-  render({
-    message: 'Lorem ipsum',
-    onAccept: function () {
-      eval(document.querySelector("script[type*=plain]._rcl").textContent);
-    }
+function renderBanner(options) {
+  options = options || {};
+  options.props = options.props || {};
+
+  options.props.onAccept = function () {
+    var elm = document.querySelector("script[type*=plain]._rcl");
+    elm && eval(elm.textContent);
+  };
+  options.props.onAcceptPreferences = function () {
+    var elm = document.querySelector("script[type*=plain]._rcl_preferences")
+    elm && eval(elm.textContent);
+  };
+  options.props.onAcceptStatistics = function () {
+    var elm = document.querySelector("script[type*=plain]._rcl_statistics")
+    elm && eval(elm.textContent);
+  };
+  options.props.onAcceptMarketing = function () {
+    var elm = document.querySelector("script[type*=plain]._rcl_marketing")
+    elm && eval(elm.textContent);
+  };
+
+  render(options.props, options.elementId);
+}
+
+function loadReact(options) {
+  loadScript('https://unpkg.com/react@16/umd/react.production.min.js', function () {
+    loadReactDom(options);
   });
 }
 
-function loadReact() {
-  loadScript('https://unpkg.com/react@16/umd/react.production.min.js', loadReactDom);
+function loadReactDom(options) {
+  loadScript('https://unpkg.com/react-dom@16/umd/react-dom.production.min.js', function () {
+    loadReactCookieLaw(options);
+  });
 }
 
-function loadReactDom() {
-  loadScript('https://unpkg.com/react-dom@16/umd/react-dom.production.min.js', loadReactCookieLaw);
+function loadReactCookieLaw(options) {
+  loadScript('https://unpkg.com/@palmabit/react-cookie-law@0.2.2/dist/index.js', function () {
+    renderBanner(options);
+  });
 }
 
-function loadReactCookieLaw() {
-  loadScript('https://unpkg.com/@palmabit/react-cookie-law@0.2.1/dist/index.js', renderBanner);
-}
-
-loadReact();
+var renderCookieBanner = loadReact;
