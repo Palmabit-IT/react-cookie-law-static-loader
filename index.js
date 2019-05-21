@@ -32,35 +32,35 @@ function render(props, elementId) {
   );
 }
 function renderBanner(options) {
-    options = options || {};
-    options.props = options.props || {};
-    var onAccept = options.props.onAccept || function(){}
-    var onAcceptPreferences = options.props.onAcceptPreferences || function(){}
-    var onAcceptStatistics = options.props.onAcceptStatistics || function(){}
-    var onAcceptMarketing = options.props.onAcceptMarketing || function(){}
+  options = options || {};
+  options.props = options.props || {};
+  var onAccept = options.props.onAccept || function () { }
+  var onAcceptPreferences = options.props.onAcceptPreferences || function () { }
+  var onAcceptStatistics = options.props.onAcceptStatistics || function () { }
+  var onAcceptMarketing = options.props.onAcceptMarketing || function () { }
 
-    options.props.onAccept = function () {
-        var elm = document.querySelector("script[type*=plain]._rcl");
-        elm && eval(elm.textContent);
-        onAccept()
-    };
-    options.props.onAcceptPreferences = function () {
-        var elm = document.querySelector("script[type*=plain]._rcl_preferences")
-        elm && eval(elm.textContent);
-        onAcceptPreferences()
-    };
-    options.props.onAcceptStatistics = function () {
-        var elm = document.querySelector("script[type*=plain]._rcl_statistics")
-        elm && eval(elm.textContent);
-        onAcceptStatistics()
-    };
-    options.props.onAcceptMarketing = function () {
-        var elm = document.querySelector("script[type*=plain]._rcl_marketing")
-        elm && eval(elm.textContent);
-        onAcceptMarketing()
-    };
+  options.props.onAccept = function () {
+    var elm = document.querySelector("script[type*=plain]._rcl");
+    elm && eval(elm.textContent);
+    onAccept()
+  };
+  options.props.onAcceptPreferences = function () {
+    var elm = document.querySelector("script[type*=plain]._rcl_preferences")
+    elm && eval(elm.textContent);
+    onAcceptPreferences()
+  };
+  options.props.onAcceptStatistics = function () {
+    var elm = document.querySelector("script[type*=plain]._rcl_statistics")
+    elm && eval(elm.textContent);
+    onAcceptStatistics()
+  };
+  options.props.onAcceptMarketing = function () {
+    var elm = document.querySelector("script[type*=plain]._rcl_marketing")
+    elm && eval(elm.textContent);
+    onAcceptMarketing()
+  };
 
-    render(options.props, options.elementId);
+  render(options.props, options.elementId);
 }
 
 function loadReact(options) {
@@ -76,7 +76,7 @@ function loadReactDom(options) {
 }
 
 function loadReactCookieLaw(options) {
-  loadScript('https://unpkg.com/@palmabit/react-cookie-law@0.2.1/dist/index.js', function () {
+  loadScript('https://unpkg.com/@palmabit/react-cookie-law@0.2.4/dist/index.js', function () {
     renderBanner(options);
   });
 }
