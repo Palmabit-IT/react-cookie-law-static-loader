@@ -31,29 +31,36 @@ function render(props, elementId) {
     document.getElementById(elementId || '_rcl-banner')
   );
 }
-
 function renderBanner(options) {
-  options = options || {};
-  options.props = options.props || {};
+    options = options || {};
+    options.props = options.props || {};
+    var onAccept = options.props.onAccept || function(){}
+    var onAcceptPreferences = options.props.onAcceptPreferences || function(){}
+    var onAcceptStatistics = options.props.onAcceptStatistics || function(){}
+    var onAcceptMarketing = options.props.onAcceptMarketing || function(){}
 
-  options.props.onAccept = function () {
-    var elm = document.querySelector("script[type*=plain]._rcl");
-    elm && eval(elm.textContent);
-  };
-  options.props.onAcceptPreferences = function () {
-    var elm = document.querySelector("script[type*=plain]._rcl_preferences")
-    elm && eval(elm.textContent);
-  };
-  options.props.onAcceptStatistics = function () {
-    var elm = document.querySelector("script[type*=plain]._rcl_statistics")
-    elm && eval(elm.textContent);
-  };
-  options.props.onAcceptMarketing = function () {
-    var elm = document.querySelector("script[type*=plain]._rcl_marketing")
-    elm && eval(elm.textContent);
-  };
+    options.props.onAccept = function () {
+        var elm = document.querySelector("script[type*=plain]._rcl");
+        elm && eval(elm.textContent);
+        onAccept()
+    };
+    options.props.onAcceptPreferences = function () {
+        var elm = document.querySelector("script[type*=plain]._rcl_preferences")
+        elm && eval(elm.textContent);
+        onAcceptPreferences()
+    };
+    options.props.onAcceptStatistics = function () {
+        var elm = document.querySelector("script[type*=plain]._rcl_statistics")
+        elm && eval(elm.textContent);
+        onAcceptStatistics()
+    };
+    options.props.onAcceptMarketing = function () {
+        var elm = document.querySelector("script[type*=plain]._rcl_marketing")
+        elm && eval(elm.textContent);
+        onAcceptMarketing()
+    };
 
-  render(options.props, options.elementId);
+    render(options.props, options.elementId);
 }
 
 function loadReact(options) {
