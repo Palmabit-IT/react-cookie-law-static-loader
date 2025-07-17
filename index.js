@@ -76,7 +76,7 @@ function loadReactDom(options) {
 }
 
 function loadReactCookieLaw(options) {
-  loadScript('https://unpkg.com/@palmabit/react-cookie-law@0.7.0/dist/index.js', function () {
+  loadScript('https://unpkg.com/@palmabit/react-cookie-law@0.7.1/dist/index.js', function () {
     renderBanner(options);
   });
 }
